@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataUserController;
+use App\Http\Controllers\PeraturanController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -36,6 +37,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/dashboard', DashboardController::class);
     Route::resource('/user', UserController::class)->middleware('role:admin')->except('show');
     Route::resource('/data-user', DataUserController::class)->middleware('role:admin')->except(['show', 'edit', 'destroy', 'create', 'store', 'update']);
+    Route::resource('/peraturan', PeraturanController::class)->middleware('role:admin')->except(['show', 'edit', 'destroy', 'update']);
 });
 
 require __DIR__ . '/auth.php';
