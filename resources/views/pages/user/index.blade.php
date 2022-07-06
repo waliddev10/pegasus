@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Data User')
+@section('title', 'Manajemen User')
 @section('title.category', 'General')
 
 @push('styles')
@@ -16,9 +16,6 @@
     <!-- Zero Configuration  Starts-->
     <div class="col-sm-12">
         <div class="card">
-            <div class="card-header">
-                <h5>Manajemen User</h5>
-            </div>
             <div class="card-body">
                 <a class="btn btn-primary btn-sm" title="Tambah User" data-bs-toggle="modal"
                     data-bs-target="#modalContainer" data-title="Tambah User" href="{{ route('user.create') }}"><i
@@ -32,12 +29,11 @@
                                 <th></th>
                                 <th>No.</th>
                                 <th>Nama</th>
-                                <th>Email</th>
+                                <th>Username</th>
                                 <th>NIP</th>
                                 <th>Jabatan</th>
                                 <th>Pangkat</th>
-                                <th>Bidang</th>
-                                <th>No. HP</th>
+                                <th>Golongan</th>
                                 <th>Role</th>
                             </tr>
                         </thead>
@@ -80,14 +76,13 @@
         columns: [
             { data: 'action', name: 'action', className: 'text-nowrap text-center', width: '1%', orderable: false, searchable: false },
             { data: 'DT_RowIndex', name: 'DT_RowIndex', className: 'text-center', width: '1%' , searchable: false, orderable: false},
-            { data: 'nama', name: 'nama', className: 'text-center' },
-            { data: 'email', name: 'email', className: 'text-center' },
-            { data: 'nip', name: 'nip', className: 'text-center' },
-            { data: 'jabatan', name: 'jabatan', className: 'text-center' },
-            { data: 'pangkat.nama', name: 'pangkat.nama', className: 'text-center text-nowrap' },
-            { data: 'bidang.nama', name: 'bidang.nama', className: 'text-nowrap' },
-            { data: 'no_hp', name: 'no_hp', className: 'text-nowrap' },
-            { data: 'role', name: 'role', className: 'text-nowrap' },
+            { data: 'nama', name: 'nama' },
+            { data: 'username', name: 'username' },
+            { data: 'nip', name: 'nip' },
+            { data: 'jabatan', name: 'jabatan' },
+            { data: 'pangkat', name: 'pangkat' },
+            { data: 'golongan', name: 'golongan' },
+            { data: 'role', name: 'role', className: 'text-center' },
         ],
     });
 

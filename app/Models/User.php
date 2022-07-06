@@ -13,31 +13,20 @@ class User extends Authenticatable
     use Notifiable;
 
     protected $fillable = [
+        'username',
+        'password',
         'nama',
-        'email',
         'nip',
         'jabatan',
-        'pangkat_id',
-        'bidang_id',
-        'no_hp',
+        'pangkat',
+        'golongan',
         'email_verified_at',
-        'password',
         'role',
-        'remember_token'
+        'remember_token',
     ];
 
     protected $hidden = [
         'password',
         'remember_token'
     ];
-
-    public function pangkat()
-    {
-        return $this->belongsTo(Pangkat::class);
-    }
-
-    public function bidang()
-    {
-        return $this->belongsTo(Bidang::class);
-    }
 }

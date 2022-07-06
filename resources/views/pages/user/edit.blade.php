@@ -9,20 +9,17 @@
                 <input type="text" name="nama" class="form-control input-air-primary" value="{{ $item->nama }}" />
             </div>
             <div class=" mt-2">
-                <label class="form-label">Email</label>
-                <input type="email" name="email" class="form-control input-air-primary" value="{{ $item->email }}" />
+                <label class="form-label">Username</label>
+                <input type="text" name="username" class="form-control input-air-primary"
+                    value="{{ $item->username }}" />
             </div>
             <div class=" mt-2">
                 <label class="form-label">NIP</label>
-                <input type="number" name="nip" class="form-control input-air-primary" value="{{ $item->nip }}" />
-            </div>
-            <div class=" mt-2">
-                <label class="form-label">No. Handphone</label>
-                <input type="number" name="no_hp" class="form-control input-air-primary" value="{{ $item->no_hp }}" />
+                <input type="text" name="nip" class="form-control input-air-primary" value="{{ $item->nip }}" />
             </div>
             <div class=" mt-2">
                 <label class="form-label">Password</label>
-                <div class="alert alert-warning" role="alert">
+                <div class="alert alert-warning text-dark" role="alert">
                     Silakan isi password jika ingin merubah password lama, dan kosongi jika tidak ingin merubah
                     password.
                 </div>
@@ -31,28 +28,17 @@
         </div>
         <div class="col">
             <div class="mt-2">
-                <label class="form-label">Pangkat</label>
-                <select name="pangkat_id" class="form-select input-air-primary">
-                    <option disabled selected>Pilih Pangkat</option>
-                    @foreach ($pangkat as $pangkat)
-                    <option value="{{ $pangkat->id }}" @if($pangkat->id == $item->pangkat_id) selected @endif>{{
-                        $pangkat->nama }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="mt-2">
-                <label class="form-label">Bidang</label>
-                <select name="bidang_id" class="form-select input-air-primary">
-                    <option disabled selected>Pilih Bidang</option>
-                    @foreach ($bidang as $bidang)
-                    <option value="{{ $bidang->id }}" @if($bidang->id == $item->bidang_id) selected @endif>{{
-                        $bidang->nama }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="mt-2">
                 <label class="form-label">Jabatan</label>
                 <input type="text" name="jabatan" class="form-control input-air-primary" value="{{ $item->jabatan }}" />
+            </div>
+            <div class="mt-2">
+                <label class="form-label">Pangkat</label>
+                <input type="text" name="pangkat" class="form-control input-air-primary" value="{{ $item->pangkat }}" />
+            </div>
+            <div class="mt-2">
+                <label class="form-label">Golongan</label>
+                <input type="text" name="golongan" class="form-control input-air-primary"
+                    value="{{ $item->golongan }}" />
             </div>
             <div class="mt-2">
                 <label class="form-label">Role</label>

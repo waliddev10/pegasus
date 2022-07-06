@@ -7,50 +7,36 @@
                 <label class="form-label">Nama User</label>
                 <input type="text" name="nama" class="form-control input-air-primary" />
             </div>
-            <div class="mt-2">
-                <label class="form-label">Email</label>
-                <input type="email" name="email" class="form-control input-air-primary" />
+            <div class=" mt-2">
+                <label class="form-label">Username</label>
+                <input type="text" name="username" class="form-control input-air-primary" />
             </div>
-            <div class="mt-2">
+            <div class=" mt-2">
                 <label class="form-label">NIP</label>
-                <input type="number" name="nip" class="form-control input-air-primary" />
+                <input type="text" name="nip" class="form-control input-air-primary" />
             </div>
-            <div class="mt-2">
+            <div class=" mt-2">
                 <label class="form-label">Password</label>
                 <input type="text" name="password" class="form-control input-air-primary" />
             </div>
-            <div class="mt-2">
-                <label class="form-label">No. Handphone</label>
-                <input type="number" name="no_hp" class="form-control input-air-primary" />
-            </div>
         </div>
         <div class="col">
-            <div class="mt-2">
-                <label class="form-label">Pangkat</label>
-                <select name="pangkat_id" class="form-select input-air-primary">
-                    <option disabled selected>Pilih Pangkat</option>
-                    @foreach ($pangkat as $pangkat)
-                    <option value="{{ $pangkat->id }}">{{ $pangkat->nama }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="mt-2">
-                <label class="form-label">Bidang</label>
-                <select name="bidang_id" class="form-select input-air-primary">
-                    <option disabled selected>Pilih Bidang</option>
-                    @foreach ($bidang as $bidang)
-                    <option value="{{ $bidang->id }}">{{ $bidang->nama }}</option>
-                    @endforeach
-                </select>
-            </div>
             <div class="mt-2">
                 <label class="form-label">Jabatan</label>
                 <input type="text" name="jabatan" class="form-control input-air-primary" />
             </div>
             <div class="mt-2">
+                <label class="form-label">Pangkat</label>
+                <input type="text" name="pangkat" class="form-control input-air-primary" />
+            </div>
+            <div class="mt-2">
+                <label class="form-label">Golongan</label>
+                <input type="text" name="golongan" class="form-control input-air-primary" />
+            </div>
+            <div class="mt-2">
                 <label class="form-label">Role</label>
                 <select name="role" class="form-select input-air-primary">
-                    <option disabled selected>Pilih Role</option>
+                    <option selected disabled>Pilih Role...</option>
                     <option value="admin">Admin</option>
                     <option value="user">User</option>
                 </select>

@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Bidang;
-use App\Models\Pangkat;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\DataTables;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -22,17 +21,20 @@ class UserController extends Controller
     public function index(Request $request)
     {
         if ($request->wantsJson()) {
-            return DataTables::of(User::with(['pangkat', 'bidang'])->get())
+            return DataTables::of(User::all())
                 ->addColumn('action', function ($item) {
                     return '<button class="btn btn-xs btn-primary" title="Ubah" data-bs-toggle="modal" data-bs-target="#modalContainer" data-title="Ubah" href="' . route('user.edit', $item->id) . '"><i class="fa fa-edit fa-fw"></i></button>
                     <button href="' . route('user.destroy', $item->id) . '" class="btn btn-xs btn-danger delete" data-target-table="tableDokumen"><i class="fa fa-trash"></i></button>';
+                })
+                ->editColumn('role', function ($item) {
+                    return Str::ucfirst($item->role);
                 })
                 ->rawColumns(['action'])
                 ->addIndexColumn()
                 ->make(true);
         }
 
-        return view('pages.data_master.user.index');
+        return view('pages.user.index');
     }
 
     /**
@@ -43,11 +45,7 @@ class UserController extends Controller
     public function create()
     {
         return view(
-            'pages.data_master.user.create',
-            [
-                'bidang' => Bidang::all(),
-                'pangkat' => Pangkat::all(),
-            ]
+            'pages.user.create'
         );
     }
 
@@ -60,27 +58,25 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nama' => 'required|string',
-            'email' => 'required|email',
-            'nip' => 'required|string',
-            'jabatan' => 'required|string',
-            'pangkat_id' => 'required',
-            'bidang_id' => 'required',
-            'no_hp' => 'required',
-            'password' => 'required|string',
+            'username' => 'required',
+            'password' => 'required',
+            'nama' => 'required',
+            'nip' => 'required',
+            'jabatan' => 'required',
+            'pangkat' => 'required',
+            'golongan' => 'required',
             'role' => 'required|in:admin,user',
         ]);
 
         User::create([
+            'username' => $request->username,
+            'password' => Hash::make($request->password),
             'nama' => $request->nama,
-            'email' => $request->email,
             'nip' => $request->nip,
             'jabatan' => $request->jabatan,
-            'pangkat_id' => $request->pangkat_id,
-            'bidang_id' => $request->bidang_id,
-            'no_hp' => $request->no_hp,
+            'pangkat' => $request->pangkat,
+            'golongan' => $request->golongan,
             'email_verified_at' => Carbon::now()->format('Y-m-d'),
-            'password' => Hash::make($request->password),
             'role' => $request->role,
         ]);
 
@@ -98,10 +94,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('pages.data_master.user.edit', [
+        return view('pages.user.edit', [
             'item' => $user,
-            'bidang' => Bidang::all(),
-            'pangkat' => Pangkat::all(),
         ]);
     }
 
@@ -115,29 +109,27 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'nama' => 'required|string',
-            'email' => 'required|email',
-            'nip' => 'required|string',
-            'jabatan' => 'required|string',
-            'pangkat_id' => 'required',
-            'bidang_id' => 'required',
-            'no_hp' => 'required',
+            'username' => 'required',
             'password' => 'nullable',
+            'nama' => 'required',
+            'nip' => 'required',
+            'jabatan' => 'required',
+            'pangkat' => 'required',
+            'golongan' => 'required',
             'role' => 'required|in:admin,user',
         ]);
 
         $data = User::findOrFail($id);
-        $data->nama = $request->nama;
-        $data->email = $request->email;
-        $data->nip = $request->nip;
-        $data->jabatan = $request->jabatan;
-        $data->pangkat_id = $request->pangkat_id;
-        $data->bidang_id = $request->bidang_id;
-        $data->no_hp = $request->no_hp;
-        $data->role = $request->role;
+        $data->username = $request->username;
         if ($request->password) {
             $data->password = Hash::make($request->password);
         }
+        $data->nama = $request->nama;
+        $data->nip = $request->nip;
+        $data->jabatan = $request->jabatan;
+        $data->pangkat = $request->pangkat;
+        $data->golongan = $request->golongan;
+        $data->role = $request->role;
         $data->update();
 
         return response()->json([
