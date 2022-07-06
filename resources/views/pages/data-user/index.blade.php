@@ -19,10 +19,12 @@
                                             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
                                                 aria-orientation="vertical">
                                                 @foreach ($user as $item)
-                                                <a class="contact-tab-{{ $loop->index }} nav-link active"
-                                                    id="v-pills-user-tab" data-bs-toggle="pill"
-                                                    onclick="activeDiv({{ $loop->index }})" href="#v-pills-user"
-                                                    role="tab" aria-controls="v-pills-user" aria-selected="true">
+                                                <a class="contact-tab-{{ $loop->index }} nav-link @if($loop->index == '0') active @endif"
+                                                    id="v-pills-user-tab-{{ $loop->index }}" data-bs-toggle="pill"
+                                                    onclick="activeDiv({{ $loop->index }})"
+                                                    href="#v-pills-user-{{ $loop->index }}" role="tab"
+                                                    aria-controls="v-pills-user-{{ $loop->index }}"
+                                                    aria-selected="true">
                                                     <div class="media"><img
                                                             class="img-50 img-fluid m-r-20 rounded-circle update_img_0"
                                                             src="{{ asset('assets/img/profile.jpg') }}" alt="">
@@ -41,8 +43,8 @@
                                             <div class="tab-content" id="v-pills-tabContent">
                                                 @foreach ($user as $item)
                                                 <div class="tab-pane contact-tab-{{ $loop->index }} tab-content-child fade @if($loop->index == '0') show active @endif"
-                                                    id="v-pills-user" role="tabpanel"
-                                                    aria-labelledby="v-pills-user-tab">
+                                                    id="v-pills-user-{{ $loop->index }}" role="tabpanel"
+                                                    aria-labelledby="v-pills-user-tab-{{ $loop->index }}">
                                                     <div class="profile-mail">
                                                         <div class="media"><img
                                                                 class="img-100 img-fluid m-r-20 rounded-circle"
