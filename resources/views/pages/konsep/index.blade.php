@@ -18,7 +18,7 @@
                                         <div class="table-responsive">
                                             <table class="table">
                                                 <tr>
-                                                    <th></th>
+                                                    <th>#</th>
                                                     <th>Judul</th>
                                                     <th>Deskripsi</th>
                                                     <th>Pengunggah</th>
