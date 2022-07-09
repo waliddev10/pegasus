@@ -33,6 +33,54 @@
                                                             href="{{ route('topensisan.spt.create') }}"><i class="me-2"
                                                                 data-feather="plus"></i>Buat</a></td>
                                                 </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h6>
+                                                            Kendali SPT
+                                                        </h6>
+                                                    </td>
+                                                    <td><a title="Buat Dokumen Kendali SPT" data-bs-toggle="modal"
+                                                            data-bs-target="#modalContainer"
+                                                            data-title="Buat Dokumen Kendali SPT"
+                                                            href="{{ route('topensisan.ks.create') }}"><i class="me-2"
+                                                                data-feather="plus"></i>Buat</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h6>
+                                                            Cost Sheet
+                                                        </h6>
+                                                    </td>
+                                                    <td><a title="Buat Dokumen Cost Sheet" data-bs-toggle="modal"
+                                                            data-bs-target="#modalContainer"
+                                                            data-title="Buat Dokumen Cost Sheet"
+                                                            href="{{ route('topensisan.cs.create') }}"><i class="me-2"
+                                                                data-feather="plus"></i>Buat</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h6>
+                                                            Kartu Penugasan
+                                                        </h6>
+                                                    </td>
+                                                    <td><a title="Buat Dokumen Kartu Penugasan" data-bs-toggle="modal"
+                                                            data-bs-target="#modalContainer"
+                                                            data-title="Buat Dokumen Kartu Penugasan"
+                                                            href="{{ route('topensisan.kp.create') }}"><i class="me-2"
+                                                                data-feather="plus"></i>Buat</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h6>
+                                                            Telaah Staf
+                                                        </h6>
+                                                    </td>
+                                                    <td><a title="Buat Dokumen Telaah Staf" data-bs-toggle="modal"
+                                                            data-bs-target="#modalContainer"
+                                                            data-title="Buat Dokumen Telaah Staf"
+                                                            href="{{ route('topensisan.ts.create') }}"><i class="me-2"
+                                                                data-feather="plus"></i>Buat</a></td>
+                                                </tr>
                                             </table>
                                         </div>
                                     </div>

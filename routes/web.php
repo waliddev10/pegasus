@@ -43,7 +43,12 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/peraturan', PeraturanController::class)->except(['edit', 'destroy', 'update']);
     Route::resource('/konsep', KonsepController::class)->except(['edit', 'destroy', 'update']);
     Route::resource('/topensisan', TopensisanController::class)->except(['edit', 'destroy', 'update']);
+
     Route::get('/topensisan-spt', [TopensisanController::class, 'createSpt'])->name('topensisan.spt.create');
+    Route::get('/topensisan-ks', [TopensisanController::class, 'createSpt'])->name('topensisan.ks.create');
+    Route::get('/topensisan-cs', [TopensisanController::class, 'createSpt'])->name('topensisan.cs.create');
+    Route::get('/topensisan-kp', [TopensisanController::class, 'createSpt'])->name('topensisan.kp.create');
+    Route::get('/topensisan-ts', [TopensisanController::class, 'createSpt'])->name('topensisan.ts.create');
 
 
     Route::resource('/penugasan', PenugasanController::class)->except(['edit', 'destroy', 'update']);
