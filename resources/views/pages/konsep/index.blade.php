@@ -13,16 +13,21 @@
                         <div class="tab-pane fade active show" id="pills-created" role="tabpanel"
                             aria-labelledby="pills-created-tab">
                             <div class="card mb-0">
-                                <div class="card-header d-flex">
-                                    <h5 class="mb-0">Konsep Penugasan</h5><a title="Tambah Konsep Penugasan"
-                                        data-bs-toggle="modal" data-bs-target="#modalContainer"
-                                        data-title="Tambah Konsep Penugasan" href="{{ route('konsep.create') }}"><i
-                                            class="me-2" data-feather="plus"></i>Tambah</a>
-                                </div>
                                 <div class="card-body p-0">
                                     <div class="taskadd">
                                         <div class="table-responsive">
                                             <table class="table">
+                                                <tr>
+                                                    <th></th>
+                                                    <th>Judul</th>
+                                                    <th>Deskripsi</th>
+                                                    <th>Pengunggah</th>
+                                                    <th class="d-flex"><a title="Tambah Konsep Penugasan"
+                                                            data-bs-toggle="modal" data-bs-target="#modalContainer"
+                                                            data-title="Tambah Konsep Penugasan"
+                                                            href="{{ route('konsep.create') }}"><i class="me-2"
+                                                                data-feather="plus"></i>Tambah</a></th>
+                                                </tr>
                                                 @foreach($konsep as $item)
                                                 <tr>
                                                     <td
