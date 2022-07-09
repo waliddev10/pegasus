@@ -25,6 +25,15 @@
                                             <table class="table">
                                                 @foreach($konsep as $item)
                                                 <tr>
+                                                    <td
+                                                        style="min-width: 1% !important; max-width: 1% !important; width: 1% !important;">
+                                                        <i class="fa
+                                                        @if(\File::extension($item->file) == 'jpg' || \File::extension($item->file) == 'jpeg' || \File::extension($item->file) == 'png') fa-file-image-o txt-success @endif
+                                                        @if(\File::extension($item->file) == 'xlsx' || \File::extension($item->file) == 'xls') fa-file-excel-o txt-success @endif
+                                                        @if(\File::extension($item->file) == 'pdf') fa-file-pdf-o txt-secondary @endif
+                                                        @if(\File::extension($item->file) == 'doc' || \File::extension($item->file) == 'docx') fa-file-word-o txt-linkedin @endif
+                                                        "></i>
+                                                    </td>
                                                     <td>
                                                         <h6 class="task_title_0">{{ $item->judul }}
                                                         </h6>
