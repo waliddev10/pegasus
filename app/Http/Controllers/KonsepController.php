@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Konsep;
+use App\Models\Peraturan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -34,6 +35,16 @@ class KonsepController extends Controller
         return view(
             'pages.konsep.create'
         );
+    }
+
+    public function show(Konsep $konsep)
+    {
+
+        $dir = storage_path('app/konsep');
+
+        $file = $dir . '/' .  $konsep->file;
+
+        return response()->download($file, $konsep->file);
     }
 
     /**

@@ -36,6 +36,16 @@ class PeraturanController extends Controller
         );
     }
 
+    public function show(Peraturan $peraturan)
+    {
+
+        $dir = storage_path('app/peraturan');
+
+        $file = $dir . '/' .  $peraturan->file;
+
+        return response()->download($file, $peraturan->file);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

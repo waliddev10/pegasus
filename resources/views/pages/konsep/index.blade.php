@@ -35,7 +35,8 @@
                                                     <td><a class="me-2" href="#"><i data-feather="user"></i></a>{{
                                                         $item->user->nama }}
                                                     </td>
-                                                    <td><a href="#"><i data-feather="download"></i></a></td>
+                                                    <td><a href="{{ route('konsep.show', $item->id) }}"><i
+                                                                data-feather="download"></i></a></td>
                                                 </tr>
                                                 @endforeach
                                             </table>

@@ -38,8 +38,9 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/dashboard', DashboardController::class);
     Route::resource('/user', UserController::class)->middleware('role:admin')->except('show');
     Route::resource('/data-user', DataUserController::class)->middleware('role:admin')->except(['show', 'edit', 'destroy', 'create', 'store', 'update']);
-    Route::resource('/peraturan', PeraturanController::class)->middleware('role:admin')->except(['show', 'edit', 'destroy', 'update']);
-    Route::resource('/konsep', KonsepController::class)->middleware('role:admin')->except(['show', 'edit', 'destroy', 'update']);
+
+    Route::resource('/peraturan', PeraturanController::class)->middleware('role:admin')->except(['edit', 'destroy', 'update']);
+    Route::resource('/konsep', KonsepController::class)->middleware('role:admin')->except(['edit', 'destroy', 'update']);
 });
 
 require __DIR__ . '/auth.php';
