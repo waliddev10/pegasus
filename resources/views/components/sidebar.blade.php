@@ -40,7 +40,7 @@
                         </a>
                     </li>
                     <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title link-nav active" href="{{ route('dashboard.index') }}">
+                        <a class="sidebar-link sidebar-title link-nav active" href="{{ route('konsep.index') }}">
                             <i data-feather="file"></i>
                             <span>Konsep Penugasan</span>
                         </a>
