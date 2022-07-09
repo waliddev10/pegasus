@@ -5,33 +5,38 @@
 
 @section('content')
 <div class="row">
-    <div style="border-top: #2563eb 4px solid;" class="col-3 card mx-2 radius-left p-3 text-center">
+    <a href="{{ route('data-user.index') }}" style="border-top: #2563eb 4px solid;"
+        class="col-3 card mx-2 radius-left p-3 text-center">
         <img class="mx-auto my-2" src="{{ asset('assets/img/teamwork.png') }}" height="84" width="84" />
         <h5 class="my-2">Data Pegawai</h5>
         <span>Basis data realtime</span>
-    </div>
-    <div style="border-top: #2563eb 4px solid;" class="col-3 card mx-2 radius-left p-3 text-center">
+    </a>
+    <a href="{{ route('peraturan.index') }}" style="border-top: #2563eb 4px solid;"
+        class="col-3 card mx-2 radius-left p-3 text-center">
         <img class="mx-auto my-2" src="{{ asset('assets/img/documents.png') }}" height="84" width="84" />
         <h5 class="my-2">Kumpulan Peraturan</h5>
         <span>Peraturan terbaru terkait administrasi penugasan</span>
-    </div>
-    <div style="border-top: #2563eb 4px solid;" class="col-3 card mx-2 radius-left p-3 text-center">
+    </a>
+    <a href="{{ route('konsep.index') }}" style="border-top: #2563eb 4px solid;"
+        class="col-3 card mx-2 radius-left p-3 text-center">
         <img class="mx-auto my-2" src="{{ asset('assets/img/notes.png') }}" height="84" width="84" />
         <h5 class="my-2">Konsep Penugasan</h5>
         <span>Format konsep penugasan kosong</span>
-    </div>
+    </a>
 </div>
 <div class="row">
-    <div style="border-top: #2563eb 4px solid;" class="col-3 card mx-2 radius-left p-3 text-center">
+    <a href="{{ route('dashboard.index') }}" style="border-top: #2563eb 4px solid;"
+        class="col-3 card mx-2 radius-left p-3 text-center">
         <img class="mx-auto my-2" src="{{ asset('assets/img/book-stack.png') }}" height="84" width="84" />
         <h5 class="my-2">TOPENSISAN</h5>
         <span>Tool pembantu administrasi penugasan</span>
-    </div>
-    <div style="border-top: #2563eb 4px solid;" class="col-3 card mx-2 radius-left p-3 text-center">
+    </a>
+    <a href="{{ route('dashboard.index') }}" style="border-top: #2563eb 4px solid;"
+        class="col-3 card mx-2 radius-left p-3 text-center">
         <img class="mx-auto my-2" src="{{ asset('assets/img/timetable.png') }}" height="84" width="84" />
         <h5 class="my-2">Data Penugasan</h5>
         <span>Daftar penugasan bidang khusus</span>
-    </div>
+    </a>
 </div>
 {{-- <div class="col-md-12 box-col-12">
     <div class="email-right-aside bookmark-tabcontent">
