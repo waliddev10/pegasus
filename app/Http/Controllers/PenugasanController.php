@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Konsep;
+use App\Models\Penugasan;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class KonsepController extends Controller
+class PenugasanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,8 +20,8 @@ class KonsepController extends Controller
      */
     public function index()
     {
-        return view('pages.konsep.index', [
-            'konsep' => Konsep::with('user')->get()
+        return view('pages.penugasan.index', [
+            'penugasan' => Penugasan::with('user')->get()
         ]);
     }
 
@@ -32,18 +33,18 @@ class KonsepController extends Controller
     public function create()
     {
         return view(
-            'pages.konsep.create'
+            'pages.penugasan.create'
         );
     }
 
-    public function show(Konsep $konsep)
+    public function show(Penugasan $penugasan)
     {
 
-        $dir = storage_path('app/konsep');
+        $dir = storage_path('app/penugasan');
 
-        $file = $dir . '/' .  $konsep->file;
+        $file = $dir . '/' .  $penugasan->file;
 
-        return response()->download($file, $konsep->file);
+        return response()->download($file, $penugasan->file);
     }
 
     /**
@@ -56,30 +57,25 @@ class KonsepController extends Controller
     {
         $this->validate($request, [
             'judul' => 'required',
-            'deskripsi' => 'required',
-            'file' => 'required|file',
+            'keterangan' => 'required',
+            'skpd' => 'required',
+            'tgl_mulai' => 'required',
+            'tgl_selesai' => 'required',
         ]);
 
-        $file = $request->file('file');
-        $code = time();
-
-        $dir = storage_path('app/konsep');
-        $fileName = $code . '_' . $file->getClientOriginalName();
-        $moveFile = $file->move($dir, $fileName);
-
-        if ($moveFile) {
-            Konsep::create([
-                'judul' => $request->judul,
-                'deskripsi' => $request->deskripsi,
-                'file' => $fileName,
-                'user_id' => Auth::user()->id
-            ]);
-        }
+        Penugasan::create([
+            'judul' => $request->judul,
+            'keterangan' => $request->keterangan,
+            'skpd' => $request->skpd,
+            'tgl_mulai' => Carbon::parse($request->tgl_mulai)->format('Y-m-d'),
+            'tgl_selesai' => Carbon::parse($request->tgl_selesai)->format('Y-m-d'),
+            'user_id' => Auth::user()->id
+        ]);
 
 
         return response()->json([
             'status' => 'success',
-            'message' => 'Konsep berhasil ditambah.',
+            'message' => 'Penugasan berhasil ditambah.',
         ], Response::HTTP_CREATED);
     }
 

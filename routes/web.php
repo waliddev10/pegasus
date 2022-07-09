@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataUserController;
 use App\Http\Controllers\KonsepController;
+use App\Http\Controllers\PenugasanController;
 use App\Http\Controllers\PeraturanController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Artisan;
@@ -36,11 +37,13 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('/dashboard', DashboardController::class);
-    Route::resource('/user', UserController::class)->middleware('role:admin')->except('show');
-    Route::resource('/data-user', DataUserController::class)->middleware('role:admin')->except(['show', 'edit', 'destroy', 'create', 'store', 'update']);
 
-    Route::resource('/peraturan', PeraturanController::class)->middleware('role:admin')->except(['edit', 'destroy', 'update']);
-    Route::resource('/konsep', KonsepController::class)->middleware('role:admin')->except(['edit', 'destroy', 'update']);
+    Route::resource('/data-user', DataUserController::class)->except(['show', 'edit', 'destroy', 'create', 'store', 'update']);
+    Route::resource('/peraturan', PeraturanController::class)->except(['edit', 'destroy', 'update']);
+    Route::resource('/konsep', KonsepController::class)->except(['edit', 'destroy', 'update']);
+    Route::resource('/penugasan', PenugasanController::class)->except(['edit', 'destroy', 'update']);
+
+    Route::resource('/user', UserController::class)->middleware('role:admin')->except('show');
 });
 
 require __DIR__ . '/auth.php';

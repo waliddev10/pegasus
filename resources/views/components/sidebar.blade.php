@@ -52,7 +52,7 @@
                         </a>
                     </li>
                     <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title link-nav active" href="{{ route('dashboard.index') }}">
+                        <a class="sidebar-link sidebar-title link-nav active" href="{{ route('penugasan.index') }}">
                             <i data-feather="calendar"></i>
                             <span>Data Penugasan</span>
                         </a>
