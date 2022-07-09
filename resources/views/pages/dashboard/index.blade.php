@@ -25,13 +25,13 @@
     </a>
 </div>
 <div class="row">
-    <a href="{{ route('dashboard.index') }}" style="border-top: #2563eb 4px solid;"
+    <a href="{{ route('topensisan.index') }}" style="border-top: #2563eb 4px solid;"
         class="col-3 card mx-2 radius-left p-3 text-center">
         <img class="mx-auto my-2" src="{{ asset('assets/img/book-stack.png') }}" height="84" width="84" />
         <h5 class="my-2">TOPENSISAN</h5>
         <span>Tool pembantu administrasi penugasan</span>
     </a>
-    <a href="{{ route('dashboard.index') }}" style="border-top: #2563eb 4px solid;"
+    <a href="{{ route('penugasan.index') }}" style="border-top: #2563eb 4px solid;"
         class="col-3 card mx-2 radius-left p-3 text-center">
         <img class="mx-auto my-2" src="{{ asset('assets/img/timetable.png') }}" height="84" width="84" />
         <h5 class="my-2">Data Penugasan</h5>

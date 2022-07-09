@@ -5,6 +5,7 @@ use App\Http\Controllers\DataUserController;
 use App\Http\Controllers\KonsepController;
 use App\Http\Controllers\PenugasanController;
 use App\Http\Controllers\PeraturanController;
+use App\Http\Controllers\TopensisanController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +42,10 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/data-user', DataUserController::class)->except(['show', 'edit', 'destroy', 'create', 'store', 'update']);
     Route::resource('/peraturan', PeraturanController::class)->except(['edit', 'destroy', 'update']);
     Route::resource('/konsep', KonsepController::class)->except(['edit', 'destroy', 'update']);
+    Route::resource('/topensisan', TopensisanController::class)->except(['edit', 'destroy', 'update']);
+    Route::get('/topensisan-spt', [TopensisanController::class, 'createSpt'])->name('topensisan.spt.create');
+
+
     Route::resource('/penugasan', PenugasanController::class)->except(['edit', 'destroy', 'update']);
 
     Route::resource('/user', UserController::class)->middleware('role:admin')->except('show');

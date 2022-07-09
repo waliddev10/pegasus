@@ -46,7 +46,7 @@
                         </a>
                     </li>
                     <li class="sidebar-list">
-                        <a class="sidebar-link sidebar-title link-nav active" href="{{ route('dashboard.index') }}">
+                        <a class="sidebar-link sidebar-title link-nav active" href="{{ route('topensisan.index') }}">
                             <i data-feather="edit-3"></i>
                             <span>Topensisan</span>
                         </a>
