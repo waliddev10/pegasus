@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Konsep;
 use App\Models\User;
+use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -41,6 +42,17 @@ class TopensisanController extends Controller
         return view(
             'pages.topensisan.spt.create'
         );
+    }
+
+    public function storeSpt(Request $request)
+    {
+        $this->validate($request, [
+            'nomor_pengantar' => 'required',
+        ]);
+
+        $pdf = PDF::loadView('pages.topensisan.spt.pdf', (array) $request->all());
+
+        return $pdf->stream('spt.pdf');
     }
 
     public function show(Konsep $konsep)

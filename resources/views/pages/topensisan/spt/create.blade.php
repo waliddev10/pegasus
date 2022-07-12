@@ -1,4 +1,4 @@
-<form action="{{ route('konsep.store') }}" accept-charset="UTF-8" class="form needs-validation" id="create"
+<form action="{{ route('topensisan.spt.store') }}" accept-charset="UTF-8" class="form needs-validation" id="create"
     autocomplete="off">
     @csrf
 
@@ -112,7 +112,7 @@
 
 </form>
 
-<script type="text/javascript">
+{{-- <script type="text/javascript">
     $("#create").on('submit', function(event) {
         event.preventDefault();
         var form = $(this);
@@ -137,4 +137,4 @@
         });
         return false;
     });
-</script>
+</script> --}}
