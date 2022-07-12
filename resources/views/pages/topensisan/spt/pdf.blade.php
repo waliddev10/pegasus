@@ -8,7 +8,8 @@
 </head>
 
 <body>
-    <img style="width:100 vw; margin: 0 auto 25px auto; text-align: center;" src="{{ asset('kop-surat.png') }}" />
+    <img style="width:100 vw; margin: 0 auto 25px auto; text-align: center;"
+        src="{{ asset('assets/images/kop-surat.png') }}" />
     <table border="0" style="width: 100%;">
         <tr>
             <td style="width: 60%;"></td>
